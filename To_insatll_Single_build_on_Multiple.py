@@ -9,6 +9,8 @@ import multiprocessing
 import time
 import codecs
 import pickle
+import glob
+import re
 
 from subprocess import STDOUT, check_output
 from multiprocessing import Pool
@@ -69,7 +71,7 @@ class Multi():
         
     def menifest(self):
        
-        pipe = subprocess.Popen(['aapt', 'dump', 'badging', apk2], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, encoding = "utf-8", error="ignore")
+        pipe = subprocess.Popen(['aapt', 'dump', 'badging', apk2], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, encoding = "utf-8", errors="ignore")
         result = pipe.communicate()[0] #byte to string coversion used decode method.
         result =result.strip()
         file = codecs.open('newdump.txt', 'w', encoding='ascii', errors='ignore')
