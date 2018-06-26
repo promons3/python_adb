@@ -1,20 +1,11 @@
 New implementation:-
-1. implemented new code snippet to find out the Android devices' serial numbers without creating a text file.
+1. Added a new code to kill 'shell'/'child process'.   
 
 Fixed Issues in python:-
-1. Resolved issue for 'offline', 'unknown' & 'unauthorized' status of the devices.
-2. Resloved issue od 'UnicodeDecodeError', some different error was displaying as- 
-    UnicodeDecodeError: 'utf8' codec can't decode byte 0xda in position 83'
-    UnicodeDecodeError, invalid continuation byte
-    UnicodeDecodeError: 'utf-8' codec can't decode byte 0xd1 in position 127
-    UnicodeDecodeError: 'charmap' codec can't decode byte X in position Y: character maps to <undefined>
-    UnicodeDecodeError: 'utf-8' codec can't decode byte 0x84
-    UnicodeDecodeError: 'utf-8' codec can't decode byte 0xad in position 1038: invalid start byte
-    UnicodeDecodeError: 'charmap' codec can't decode byte 0x8f in position 2756: character maps to <undefined>
-    UnicodeDecodeError: 'charmap' codec can't decode byte 0x8d
-    UnicodeDecodeError: 'utf-8' codec can't decode byte 0xa8 in position 2527: invalid start byte
-3. Added code snippet to handle error 'subprocess.CalledProcessError: <Command> returned non-zero exit status 1.    
-
+ 1. I've removed the '-d' option from the 'adb logcat' command inside the Popen, previously it was dumping the log to file and then used to get quit.
+ 2. Removed the time pause from underneath of the 'subprocess.Popen(['adb', '-s', device_id, 'logcat', '-v', 'threadtime'], stdout=f1, shell=True)' command, which was causing an issue of not logging the start part of the device log.
+ 3. Change the logging command position, as previously it was after the launching of the app, in this logging will start before launching the app.
+ 4. Resolved the issue all log file keeping update continuously in all available folders
 
 Known Issue(s):-
 1. UnboundLocalError appears when device got disconnected.
