@@ -1,0 +1,17 @@
+
+List of modifications in Script v2.1:
+-log folder name to be changed :From “AppTesting_On_DDMMYYYY - DONE
+-Script starts some home window or dashboard automatically, eliminate this if possible: Using the 'Intent' to launch an app rather than ActivityName: added monkeyrunner support
+-Detect newly connected/disconnected devices and test the next app: For this the code snippet as added & it's working
+-remove package name activity name in console and add some information if they are not there:it will print the only available things not others
+-if log file/folder already present > Create new or create new folder: I've added workaround code for this as it will create different folder for the apps in main folder.
+-Device names to be printed in adb log instead of device ID: I've created a static module for this and it's working with one device but not working if multiple devices are connected.
+-Network path: it will work for folder path but not if you drag a file to the cmd.
+
+In-progress:-
+-Coloring of app name and device being tested  - I’ve added different modules for colors as well but still not working as expected.
+
+Not Completed:-
+-Long path should be accepted by the script - getting an error 'parameter [87] for long files' name
+-Pause feature if possible (Pause at the logical end at the script, if not at the same point) - Checked it out with Python Debugger but in python '3.6.4', that module is not matching.
+
